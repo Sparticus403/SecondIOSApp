@@ -11,7 +11,10 @@ import UIKit
 class ViewController: UIViewController
 {
 
-    @IBOutlet var button: UIButton!
+    @IBOutlet weak var background: UIView!
+    
+    
+    @IBOutlet weak var button: UIButton!
     
     @IBOutlet var label: UILabel!
     
@@ -27,13 +30,27 @@ class ViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func clickedButton(sender:
-        UIButton)
+    
+    @IBAction func clickedButton(sender: UIButton)
     {
+    
         label.text = "You clicked me!"
         label.textColor = UIColor.redColor()
+        background.backgroundColor = UIColor.redColor()
     }
-
+    
+    private func makeRandomColor() -> UIColor
+    {
+        //make 3 values between 0-1 percentage and create a color from them.
+        let randomColor : UIColor
+        let red :CGFloat = CGFloat(drand48())
+        let green :CGFloat = CGFloat(drand48())
+        let blue :CGFloat = CGFloat(drand48())
+        randomColor = UIColor( red: red, green: green, blue: blue, alpha: 1.0)
+        
+        return randomColor
+    }
+   
 
 }
 
